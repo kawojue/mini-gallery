@@ -7,8 +7,8 @@ function App() {
 
   return (
     <main>
-      <LoadPlace places={cities} />
       <LoadPlace places={natures} />
+      <LoadPlace places={cities} />
     </main>
   )
 }

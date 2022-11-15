@@ -4,18 +4,18 @@ import { createContext, useState, useEffect } from 'react'
 const Context = createContext({})
 
 export const DataProvider = ({ children }) => {
-    const [city, setCity] = useState([])
-    const [nature, setNature] = useState([])
+    const [cities, setCity] = useState([])
+    const [natures, setNature] = useState([])
 
     const mapImages = () => {
         let cities = []
         let natures = []
 
         dataImages.forEach(image => {
-            if (image.category === 'city') {
+            if (image.place === 'city') {
                 cities.push(image)
             }
-            if (image.category === 'nature') {
+            if (image.place === 'nature') {
                 natures.push(image)
             }
         })
@@ -28,13 +28,9 @@ export const DataProvider = ({ children }) => {
         mapImages()
     }, [])
 
-
-    console.log(city)
-    console.log(nature)
-
     return (
         <Context.Provider value={{
-            city, nature
+            cities, natures
         }}>
             {children}
         </Context.Provider>
