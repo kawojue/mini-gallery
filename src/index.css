@@ -10,12 +10,12 @@ body {
     @apply transition-all duration-200 ease-linear;
 }
 
-#root {
-    @apply mt-20 mb-16 w-[90vw] max-w-[1150px] mx-auto;
+section {
+    @apply flex flex-col w-full;
 }
 
-main {
-    @apply flex flex-col gap-40 w-full;
+.page-1 {
+    @apply gap-40 mt-20 mb-16 w-[90vw] max-w-[1150px] mx-auto;
 }
 
 .location {
@@ -28,4 +28,12 @@ main {
 
 .photo:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.page-2 {
+    @apply gap-20 w-screen h-screen bg-black;
+}
+
+.hide {
+    display: none;
 }

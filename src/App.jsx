@@ -7,8 +7,15 @@ function App() {
 
   return (
     <main>
-      <LoadPlace places={natures} />
-      <LoadPlace places={cities} />
+      <section className="page-1 hide">
+        <LoadPlace places={natures} />
+        <LoadPlace places={cities} />
+      </section>
+
+      <section className="page-2">
+        <p>Hello, World!</p>
+        <p>Test</p>
+      </section>
     </main>
   )
 }
