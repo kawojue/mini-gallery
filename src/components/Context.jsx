@@ -6,6 +6,7 @@ const Context = createContext({})
 export const DataProvider = ({ children }) => {
     const [cities, setCity] = useState([])
     const [natures, setNature] = useState([])
+    const [openModal, setOpenModal] = useState(false)
 
     const mapImages = () => {
         let cities = []
@@ -30,7 +31,8 @@ export const DataProvider = ({ children }) => {
 
     return (
         <Context.Provider value={{
-            cities, natures
+            cities, natures,
+            openModal, setOpenModal
         }}>
             {children}
         </Context.Provider>
