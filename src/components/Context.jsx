@@ -5,6 +5,7 @@ const Context = createContext({})
 
 export const DataProvider = ({ children }) => {
     const [cities, setCity] = useState([])
+    const [active, setActive] = useState(0)
     const [natures, setNature] = useState([])
     const [openModal, setOpenModal] = useState(false)
 
@@ -25,13 +26,36 @@ export const DataProvider = ({ children }) => {
         setNature(natures)
     }
 
+    const move = (action, list) => {
+        const lastElement = list.length - 1
+        if (action === 'next') {
+            if (active === lastElement) {
+                setActive(0)
+            } else {
+                setActive(active + 1)
+            }
+        }
+
+        if (action === 'prev') {
+            if (active === 0) {
+                setActive(lastElement)
+            } else {
+                setActive(active - 1)
+            }
+        }
+    }
+
+    const gallery = () => {
+
+    }
+
     useEffect(() => {
         mapImages()
     }, [])
 
     return (
         <Context.Provider value={{
-            cities, natures,
+            cities, natures, move,
             openModal, setOpenModal
         }}>
             {children}
