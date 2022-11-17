@@ -7,7 +7,9 @@ export const DataProvider = ({ children }) => {
     const [cities, setCity] = useState([])
     const [active, setActive] = useState(0)
     const [natures, setNature] = useState([])
+    const [activeList, setActiveList] = useState([])
     const [openModal, setOpenModal] = useState(false)
+    const [activeImage, setActiveImage] = useState({})
 
     const mapImages = () => {
         let cities = []
@@ -24,6 +26,13 @@ export const DataProvider = ({ children }) => {
 
         setCity(cities)
         setNature(natures)
+    }
+
+    const close = () => {
+        setOpenModal(!openModal)
+        setActive(0)
+        setActiveImage(0)
+        setActiveList([])
     }
 
     const move = (action, list) => {
@@ -43,10 +52,21 @@ export const DataProvider = ({ children }) => {
                 setActive(active - 1)
             }
         }
+
+        setActiveImage(list[active])
     }
 
-    const gallery = () => {
+    const view = (id, category, place) => {
+        setOpenModal(!openModal)
+        setActive(id - 1)
+        if (category === 'city') {
+            setActiveList(cities)
+        }
+        if (category === 'nature') {
+            setActiveList(natures)
+        }
 
+        setActiveImage(place)
     }
 
     useEffect(() => {
@@ -56,7 +76,9 @@ export const DataProvider = ({ children }) => {
     return (
         <Context.Provider value={{
             cities, natures, move,
-            openModal, setOpenModal
+            openModal, setOpenModal,
+            activeImage, view, activeList,
+            active, close
         }}>
             {children}
         </Context.Provider>
