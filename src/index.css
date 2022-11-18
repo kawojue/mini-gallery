@@ -31,9 +31,37 @@ section {
 }
 
 .page-2 {
-    @apply gap-20 w-screen h-screen bg-black;
+    @apply gap-20 bg-black relative text-white px-8 w-full h-screen;
+}
+
+.close {
+    @apply absolute top-5 right-5 text-3xl;
 }
 
 .hide {
     display: none;
+}
+
+.show-img-container {
+    @apply flex gap-7 mt-28 w-full;
+}
+
+.img-container {
+    @apply w-full flex flex-col gap-10 items-center
+}
+
+.title {
+    @apply text-2xl capitalize tracking-wider font-medium;
+}
+
+.image {
+    @apply w-full h-[15rem] object-cover rounded-md
+}
+
+.ico {
+    @apply text-3xl;
+}
+
+.preview-container {
+    @apply flex mt-10;
 }
