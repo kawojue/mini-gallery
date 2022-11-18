@@ -1,12 +1,12 @@
 import Context from './Context'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { MdClose } from 'react-icons/md'
 import GalleryPreview from './GalleryPreview'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 
 const Gallery = () => {
-    const { move, activeImage, close } = useContext(Context)
+    const { move, activeImage, close, activeList } = useContext(Context)
 
     return (
         <>
@@ -15,21 +15,28 @@ const Gallery = () => {
                 <MdClose />
             </button>
             <div>
-                <article className="show-img-container">
-                    <button className="ico md:text-5xl" onClick={() => move('prev')}>
-                        <FaAngleLeft />
-                    </button>
+                <article className="container">
                     <div className="img-container">
-                        <img src={activeImage.img} className="image md:h-[20rem]" />
+                        <div className="btn-img-container">
+                            <button className="ico md:text-5xl" onClick={() => move('prev')}>
+                                <FaAngleLeft />
+                            </button>
+                            <img src={activeImage.img} className="image md:h-[20rem]" />
+                            <button className="ico md:text-5xl" onClick={() => move('next')} >
+                                <FaAngleRight />
+                            </button>
+                        </div>
                         <h3 className="title md:text-3xl">
                             {activeImage.title}
                         </h3>
                     </div>
-                    <button className="ico md:text-5xl" onClick={() => move('next')} >
-                        <FaAngleRight />
-                    </button>
                 </article>
-                <GalleryPreview />
+
+                <article className="preview-container">
+                    {activeList.map(data => (
+                        <GalleryPreview data={data} key={data.id} />
+                    ))}
+                </article>
             </div>
         </>
     )
