@@ -13,7 +13,7 @@ function App() {
         <LoadPlace places={cities} />
       </section>
 
-      <section className={`page-2 ${!openModal ? 'hide' : ''}`}>
+      <section className={`page-2 ${!openModal ? 'hide' : ''} md:px-10`}>
         <Gallery />
       </section>
     </main>
