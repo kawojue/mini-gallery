@@ -35,8 +35,20 @@ export const DataProvider = ({ children }) => {
         setActiveList([])
     }
 
-    const move = (action, list) => {
-        const lastElement = list.length - 1
+    const view = (id, category, place) => {
+        setOpenModal(!openModal)
+        if (category === 'city') {
+            setActiveList(cities)
+        }
+        if (category === 'nature') {
+            setActiveList(natures)
+        }
+
+        setActiveImage(place)
+    }
+
+    const move = (action) => {
+        const lastElement = activeList.length - 1
         if (action === 'next') {
             if (active === lastElement) {
                 setActive(0)
@@ -53,20 +65,7 @@ export const DataProvider = ({ children }) => {
             }
         }
 
-        setActiveImage(list[active])
-    }
-
-    const view = (id, category, place) => {
-        setOpenModal(!openModal)
-        setActive(id - 1)
-        if (category === 'city') {
-            setActiveList(cities)
-        }
-        if (category === 'nature') {
-            setActiveList(natures)
-        }
-
-        setActiveImage(place)
+        setActiveImage(activeList[active])
     }
 
     useEffect(() => {
