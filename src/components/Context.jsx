@@ -35,7 +35,7 @@ export const DataProvider = ({ children }) => {
         setActiveList([])
     }
 
-    const view = (id, category, place) => {
+    const view = (category, place) => {
         setOpenModal(!openModal)
         if (category === 'city') {
             setActiveList(cities)
@@ -77,7 +77,8 @@ export const DataProvider = ({ children }) => {
             cities, natures, move,
             openModal, setOpenModal,
             activeImage, view, activeList,
-            active, close
+            active, close, setActiveImage,
+            setActive
         }}>
             {children}
         </Context.Provider>
