@@ -4,16 +4,16 @@ import Gallery from './components/Gallery'
 import LoadPlace from './components/LoadPlace'
 
 function App() {
-  const { openModal, cities, natures } = useContext(Context)
+  const { } = useContext(Context)
 
   return (
     <main>
-      <section className={`page-1 ${openModal ? 'hide' : ''}`}>
+      <section className={`page-1`}>
         <LoadPlace places={natures} />
         <LoadPlace places={cities} />
       </section>
 
-      <section className={`page-2 ${!openModal ? 'hide' : ''} md:px-10`}>
+      <section className={`page-2 md:px-10`}>
         <Gallery />
       </section>
     </main>
