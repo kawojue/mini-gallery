@@ -2,8 +2,11 @@ import Context from './Context'
 import { useContext } from 'react'
 
 
-const LoadPlace = ({ }) => {
+const LoadPlace = ({ places }) => {
     const { } = useContext(Context)
+
+    console.log(places)
+
     return (
         <article className='location md:grid-cols-2 lg:grid-cols-3'>
             {places.map(place => (
