@@ -1,12 +1,12 @@
 import Context from './Context'
 import { useState, useContext } from 'react'
 
-const GalleryPreview = ({ }) => {
-    const { } = useContext(Context)
+const GalleryPreview = ({ data }) => {
+    const { activeImage, active } = useContext(Context)
 
     return (
-        <img src={``} className='img'
-            alt={``} />
+        <img src={data.img} className={`img ${data[active] === activeImage ? 'active' : ''}`}
+            alt={data.title} />
     )
 }
 

@@ -6,28 +6,30 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 
 const Gallery = () => {
-    const { } = useContext(Context)
+    const { close, activeList, move, activeImage } = useContext(Context)
 
     return (
         <>
             <button className="close"
-            >
+                onClick={() => close()}>
                 <MdClose />
             </button>
             <div>
                 <article className="container">
                     <div className="img-container">
                         <div className="btn-img-container">
-                            <button className="ico md:text-5xl" >
+                            <button className="ico md:text-5xl"
+                                onClick={() => move('prev')} >
                                 <FaAngleLeft />
                             </button>
-                            <img src={``} className="image md:h-[20rem]" />
-                            <button className="ico md:text-5xl"  >
+                            <img src={activeImage.img} className="image md:h-[20rem]" />
+                            <button className="ico md:text-5xl"
+                                onClick={() => move('next')}>
                                 <FaAngleRight />
                             </button>
                         </div>
                         <h3 className="title md:text-3xl">
-                            { }
+                            {activeImage.title}
                         </h3>
                     </div>
                 </article>
