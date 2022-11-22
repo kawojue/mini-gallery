@@ -1,20 +1,23 @@
 import { useContext } from 'react'
 import Context from './components/Context'
-import Gallery from './components/Gallery'
+// import Gallery from './components/Gallery'
 import LoadPlace from './components/LoadPlace'
 
 function App() {
-  const { } = useContext(Context)
+  const { data } = useContext(Context)
+
+  console.log(data)
 
   return (
     <main>
       <section className={`page-1`}>
-        <LoadPlace places={natures} />
-        <LoadPlace places={cities} />
+        {data.map((place, index) => (
+          <LoadPlace key={index} places={place} />
+        ))}
       </section>
 
       <section className={`page-2 md:px-10`}>
-        <Gallery />
+        {/* <Gallery /> */}
       </section>
     </main>
   )
